@@ -1,0 +1,300 @@
+html {
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --c-white: #FFFFFF;
+  --c-green: #8AD191;
+  --c-blue: #0D89B0;
+  --c-velvet: #7FAFF6;
+  --c-grey-dark: #88B5BF;
+  --c-velvet-light: #A5C7F9;
+  --c-yellow: #B3F95A;
+  --c-grey-light: #C0DBD9;
+  --offset-container: 15px;
+  --font-family: "Roboto", sans-serif;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-width: 320px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  background-color: var(--light);
+  line-height: 1.4;
+  font-family: var(--font-family);
+  background-color: var(--c-grey-light);
+}
+
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  max-height: 100%;
+}
+
+
+button {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+fieldset {
+  margin: 0;
+}
+
+iframe {
+  border: none;
+}
+
+/*
+Доступно скрываю элементы
+*/
+
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
+
+/*
+Пример контейнера
+
+Если контейнер 1180px по макету,
+то для max-width прибавляем паддинги 30px*2, 
+в итоге 1240px
+Чтобы контент не прижимался к краям экрана
+*/
+
+
+.container {
+  max-width: calc(var(--offset-container)* 2 + 1170px);
+  padding: 0 var(--offset-container);
+  margin: 0 auto;
+}
+
+/* styles */
+
+.header {
+  background-color: var(--c-velvet);
+  padding: 30.5px 30.5px;
+  margin-bottom: 15px;
+}
+
+.header__button {
+  font-size: 20px;
+  color: var(--c-white);
+  background-color: var(--c-velvet-light);
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-family: var(--font-family);
+}
+
+.main {
+  margin-bottom: 100px;
+}
+
+.main__cards {
+  background-color: var(--c-yellow);
+}
+
+.main__container {
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 390px, 590px, 160px;
+  grid-template-rows: repeat(auto-fill, minmax(198px, 1fr));
+  grid-template-areas:
+    "card-1 card-2 card-3"
+    "card-4 card-4 card-5"
+  ;
+  gap: 15px;
+}
+
+.main__card {
+  display: flex;
+  position: relative;
+  background-color: var(--c-green);
+  min-height: 198px;
+  counter-increment: div-counter;
+}
+
+.main__card--1 {
+  grid-area: card-1;
+}
+
+.main__card--1:after {
+  position: absolute;
+  content: counter(div-counter);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 53px;
+  color: var(--c-white);
+}
+
+.main__card--2 {
+  grid-area: card-2;
+}
+
+.main__card--2:after {
+  position: absolute;
+  content: counter(div-counter);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 53px;
+  color: var(--c-white);
+}
+
+.main__card--3 {
+  grid-area: card-3;
+}
+
+.main__card--3:after {
+  position: absolute;
+  content: counter(div-counter);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 53px;
+  color: var(--c-white);
+}
+
+.main__card--4 {
+  grid-area: card-4;
+}
+
+.main__card--4:after {
+  position: absolute;
+  content: counter(div-counter);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 53px;
+  color: var(--c-white);
+}
+
+.main__card--5 {
+  grid-area: card-5;
+}
+
+.main__card--5:after {
+  position: absolute;
+  content: counter(div-counter);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 53px;
+  color: var(--c-white);
+}
+
+.main__offers {
+  background-color: var(--c-grey-dark);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.offers__container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  gap: 30px;
+  padding: 0 30px;
+}
+
+.offers__card {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--c-blue);
+  flex-grow: 1;
+  max-width: 255px;
+  aspect-ratio: 255 / 199;
+}
+
+.footer {
+  min-height: 100px;
+  background-color: var(--c-velvet);
+}
+
+/* Чтобы не превращать кнопки в ссылки я добавил немного инлайн js в теги
+чтобы сохранить семантичность, в противномм случае можно сделать из кнопок ссылки, тогда можно обойтись полностью без кода. */
+.modal {
+  position: fixed; /* Изменил с absolute на fixed для корректного всплывания */
+  display: flex;
+  width: 400px;
+  height: 400px;
+  background-color: var(--c-white);
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+ }
+
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+ }
+
+.modal__btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border-radius: 5px;
+  padding: 8px 15px;
+  width: 43px;
+  height: 39px;
+  font-size: 20px;
+  color: var(--c-white);
+  background-color: var(--c-velvet);
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+.modal__text {
+  font-size: 53px;
+  color: #000;
+}
